@@ -7,6 +7,6 @@ Samsung 30Q is a high-performance lithium-ion cell widely used in various applic
 - **Nominal Voltage**: 3.6V
 - **Max Continuous Discharge Current**: 15A
 
-##Cycle Life:
+Cycle Life:
    - The battery is rated for around 300-500 cycles with minimal capacity loss under optimal conditions.
    - Proper care can extend its lifespan.
