@@ -10,3 +10,35 @@ Samsung 30Q is a high-performance lithium-ion cell widely used in various applic
 Cycle Life:
    - The battery is rated for around 300-500 cycles with minimal capacity loss under optimal conditions.
    - Proper care can extend its lifespan.
+
+## Dataset
+The dataset consists of ...
+
+## Licensing and Citation
+
+This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License [cc-by-sa 4.0].
+
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+
+Cite this as: 
+
+@Misc{ARTSLabSignalProcessingInstrument,    
+  author = {ARTS-Lab},  
+  howpublished = {GitHub},  
+  title  = {Dataset-battery-Samung-30Q-cycling},    
+  groups = {ARTS-Lab},    
+  url    = {https://github.com/ARTS-Laboratory/Dataset-battery-Samung-30Q-cycling},   
+}
+
+<p align="center">
+<img src="media/QR-code.png" alt="drawing" width="200"/>
+</p>
+<p align="center">
+QR code for repo.
+</p>
+
+
+
+
+
