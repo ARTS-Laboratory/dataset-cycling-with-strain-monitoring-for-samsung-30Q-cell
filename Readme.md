@@ -25,7 +25,7 @@ Cite this as:
 @Misc{ARTSLabDatasetCyclingStrain,    
   author = {ARTS-Lab},  
   howpublished = {GitHub},  
-  title  = {dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell},    
+  title  = {Dataset Cycling with Strain Monitoring for {S}amsung 30Q Cell},    
   groups = {ARTS-Lab},    
   url    = {https://github.com/ARTS-Laboratory/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell},   
 }
