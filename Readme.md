@@ -10,8 +10,11 @@ Cycle Life:
    - The battery is rated for around 300-500 cycles with minimal capacity loss under optimal conditions.
    - Proper care can extend its lifespan.
 
-## Dataset
-The dataset consists of ...
+## Dataset-1
+The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~80% capacity remained.
+
+## Dataset-2
+In Progress
 
 ## Licensing and Citation
 
