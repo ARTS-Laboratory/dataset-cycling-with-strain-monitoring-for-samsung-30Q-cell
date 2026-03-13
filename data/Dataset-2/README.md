@@ -85,7 +85,8 @@ cell2_cycle_342_Current_Temperature_Strain.png
      ┌──────────────────────────────┐
      │ Save figure (optional)       │
      └──────────────────────────────┘
+```
 
-
-
+### Example Figure
+![Cycle 342 Plot](https://raw.githubusercontent.com/ARTS-Laboratory/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell/main/data/Dataset-2/cell2/figures/cycle_342_Current_Temperature_Strain.png)
 
