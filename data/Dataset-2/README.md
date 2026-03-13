@@ -72,7 +72,7 @@ cell2_cycle_342_Current_Temperature_Strain.png
                 │
                 ▼
    ┌────────────────────────────────────┐
-   │ Select variables (V, I, T, strain)    │
+   │ Select variables (I, T, strain)    │
    └──────────┬─────────────────────────┘
               │
               ▼
