@@ -2,6 +2,7 @@
 ![Status](https://img.shields.io/badge/status-in%20progress-yellow)
 ![Data](https://img.shields.io/badge/data-LVM%20files-blue)
 ![Python](https://img.shields.io/badge/python-3.10+-brightgreen)
+
 A structured dataset of battery cycling experiments, including synchronized measurements of current, voltage, temperature, and mechanical strain. Data acquisition is ongoing, and new cycles are added as testing continues.
 
 ## 📊 Data Columns
