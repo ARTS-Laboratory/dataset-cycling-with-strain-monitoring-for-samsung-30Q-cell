@@ -1,7 +1,7 @@
 Dataset‑2
-https://img.shields.io/badge/status-in%20progress-yellow
-https://img.shields.io/badge/data-LVM%20files-blue
-https://img.shields.io/badge/python-3.10+-brightgreen
+![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+![Data](https://img.shields.io/badge/data-LVM%20files-blue)
+![Python](https://img.shields.io/badge/python-3.10+-brightgreen)
 A structured dataset of battery cycling experiments, including synchronized measurements of current, voltage, temperature, and mechanical strain. Data acquisition is ongoing, and new cycles are added as testing continues.
 
 📊 Data Columns
@@ -40,6 +40,7 @@ The script lists all available cycles for that cell.
 Enter the cycle number you want to plot.
 3. Choose variables to plot
 Select any combination of:
+- Voltage
 - Current
 - Temperature
 - Strain
@@ -68,7 +69,7 @@ cell2_cycle_342_Current_Temperature_Strain.png
                 │
                 ▼
    ┌────────────────────────────────────┐
-   │ Select variables (I, T, strain)    │
+   │ Select variables (V, I, T, strain)    │
    └──────────┬─────────────────────────┘
               │
               ▼
