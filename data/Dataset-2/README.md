@@ -20,12 +20,11 @@ Mechanical hoop strain on the battery casing, measured in strain (ε).
 ## 📁 Folder Structure
 The dataset is organized by cell, and each cell directory contains two subfolders:
 cellX/
-   charge/
-       charge_<fileIndex>_<cycleNum>.lvm
-   discharge/
-       discharge_<fileIndex>_<cycleNum>.lvm
-
-
+    charge/
+        charge_<fileIndex>_<cycleNum>.lvm
+    discharge/
+        discharge_<fileIndex>_<cycleNum>.lvm
+        
 Each .lvm file is named using a file index and a cycle number.
 The cycle number is always the final number in the filename, allowing the script to automatically match charge and discharge files for the same cycle.
 
