@@ -20,8 +20,6 @@ Mechanical hoop strain on the battery casing, measured in strain (ε).
 ## 📁 Folder Structure
 The dataset is organized by cell, and each cell directory contains two subfolders:
 
-The dataset is organized by cell, and each cell directory contains two subfolders:
-
 ```text
 cellX/
     charge/
