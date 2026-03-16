@@ -50,34 +50,28 @@ For each cell, the script writes:
 SOC/cellX_capacity_summary.lvm
 
 
-Each file contains:
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-
-
-
 ▶️ How to Use the Script
 1. Add your data files
 Place your .lvm charge/discharge files in the same directory as the script.
 Update the cells dictionary:
+```text
 cells = {
     "cell1": ["_1__ChargeCycle1.lvm","_1__DischargeCycle1.lvm"],
     "cell2": ["_2__ChargeCycle1.lvm","_2__DischargeCycle1.lvm"],
     "cell3": ["_3__ChargeCycle1.lvm","_3__DischargeCycle1.lvm"]
 }
-
+```
 
 
 2. Set QSTART for each cell
 QSTART is applied only to cycle 1:
+```text
 QSTARTS = {
     "cell1": 1.50,
     "cell2": 1.40,
     "cell3": 1.60
 }
-
+```
 
 
 3. Run the script
@@ -89,14 +83,16 @@ No user interaction required.
 
 4. View the output
 Example:
+```text
 Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 1	    4.32		        0.22
 2	    2.79		        0.25
 3	    2.75		        0.28
-
+```
 
 
 🧭 Processing Flow
+```text
           ┌──────────────────────────┐
           │     Start the script     │
           └──────────┬──────────────┘
@@ -127,11 +123,12 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
    ┌──────────────────────────────────────┐
    │ Save summary file in SOC/ folder     │
    └──────────────────────────────────────┘
-
+```
 
 
 📂 Output Directory Structure
 project/
+```text
 │
 ├── Capacity_Extractor.py
 ├── _1__ChargeCycle1.lvm
@@ -143,7 +140,7 @@ project/
     ├── cell1_capacity_summary.lvm
     ├── cell2_capacity_summary.lvm
     └── cell3_capacity_summary.lvm
-
+```
 
 
 
