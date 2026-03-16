@@ -1,8 +1,11 @@
-# 🔋 Capacity_Extractor
+# Source Data
+Original source data prior to any preprocessing. Files, _1__ChargeCycle1 and _3__ChargeCycle1, were split into 2 parts due to file size. The file parts must be must combined and named at previously stated for scripts to work. Below are explainations of the scripts and instructions for usage. Calculated cycle capacities for each cell are located in the Capacity folder.
+
+## 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
 This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
 
-## 📘 Overview
+### 📘 Overview
 The Capacity_Extractor script computes per‑cycle charge and discharge capacities for multiple battery cells. It is designed for datasets where:
 - Each cell has separate charge and discharge files
 - Cycles are embedded within each file
@@ -17,8 +20,8 @@ The script ensures:
 - Capacity fade emerges naturally as integrals shrink with age
 All results are written to a dedicated Capacity/ folder.
 
-## ⚙️ How the Script Works
-### 1. Load charge and discharge data
+### ⚙️ How the Script Works
+#### 1. Load charge and discharge data
 ```text
 For each cell, the script loads:
 Charge file:    *_ChargeCycle*.lvm
@@ -27,13 +30,13 @@ Discharge file: *_DischargeCycle*.lvm
 
 You define these in the cells dictionary.
 
-### 2. Detect cycles automatically
+#### 2. Detect cycles automatically
 Cycles are identified by:
 - Timestamp resets
 - Large time gaps (configurable threshold)
 Each cycle is processed independently.
 
-### 3. Compute charge capacity
+#### 3. Compute charge capacity
 - Cycle 1 uses the cell’s QSTART offset:
 ```text
 Qc1 = QSTART + ∫ I_charge dt
@@ -42,18 +45,18 @@ Qc1 = QSTART + ∫ I_charge dt
 ```text
 Qc(n>=2) = Q + ∫ I_charge dt
 ```
-### 4. Compute discharge Capacity
+#### 4. Compute discharge Capacity
 Discharge always begins from the charge capacity of the same cycle:
 ```text
 Qd(n) = Qc(n) - ∫ |I_discharge| dt
 ```
-### 5. Export results
+#### 5. Export results
 For each cell, the script writes:
 ```text
 Capacity/cellX_capacity_summary.lvm
 ```
 
-## ▶️ How to Use the Script
+### ▶️ How to Use the Script
 ### 1. Add your data files
 Place your .lvm charge/discharge files in the same directory as the script.
 Update the cells dictionary:
@@ -66,7 +69,7 @@ cells = {
 ```
 
 
-### 2. Set QSTART for each cell
+#### 2. Set QSTART for each cell
 QSTART is applied only to cycle 1:
 ```text
 QSTARTS = {
@@ -77,14 +80,14 @@ QSTARTS = {
 ```
 
 
-### 3. Run the script
+#### 3. Run the script
 It will:
 - Detect cycles
 - Compute charge/discharge capacities
 - Save summary files in Capacity/
 - No user interaction required.
 
-### 4. View the output
+#### 4. View the output
 Example:
 ```text
 Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
@@ -94,7 +97,7 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ```
 
 
-## 🧭 Processing Flow
+### 🧭 Processing Flow
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
@@ -129,7 +132,7 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ```
 
 
-## 📂 Output Directory Structure
+### 📂 Output Directory Structure
 ```text
 project/
 ├── Capacity_Extractor.py
@@ -145,10 +148,10 @@ project/
 ```
 
 
-# 📘 Cell_Combined_Cycle_Plot Script
+## 📘 Cell_Combined_Cycle_Plot Script
 This script loads charge and discharge .lvm files for each battery cell, aligns their timestamps, merges them into a single continuous dataset, removes invalid strain spikes, detects strain‑based cycling events, and generates a strain‑vs‑time plot with peak markers.
 
-## 🔍 What the Script Does
+### 🔍 What the Script Does
 For each cell, the script:
 ```text
 - Loads the charge and discharge files
@@ -165,8 +168,8 @@ For each cell, the script:
 
 This produces a clean, continuous dataset and a visual representation of strain cycling behavior.
 ```
-## ▶️ How to Use the Script
-### 1. Place your data files
+### ▶️ How to Use the Script
+#### 1. Place your data files
 Each cell must have:
 ```text
 Charge file:    *_ChargeCycle1.lvm
@@ -174,7 +177,7 @@ Discharge file: *_DischargeCycle1.lvm
 
 The script automatically loads them based on the cells dictionary.
 ```
-### 2. Run the script
+#### 2. Run the script
 The script will:
 ```text
 - Load and clean the charge and discharge data
@@ -184,7 +187,7 @@ The script will:
 - Count the number of cycles
 - Generate a strain plot with peak markers
 ```
-### 3. View the merged output
+#### 3. View the merged output
 For each cell, the script writes:
 ```text
 cell1.lvm
@@ -193,14 +196,14 @@ cell3.lvm
 
 These contain the combined charge+discharge dataset sorted by time.
 ```
-### 4. Inspect the cycle count
+#### 4. Inspect the cycle count
 The script prints:
 ```text
 Number of cycles: X
 
 This is based on the number of positive strain peaks detected.
 ```
-### 5. View the generated plot
+#### 5. View the generated plot
 Each plot shows:
 ```text
 - Strain vs. time
@@ -210,7 +213,7 @@ Each plot shows:
 
 This helps visualize mechanical cycling behavior.
 ```
-## 🧭 Processing Diagram
+### 🧭 Processing Diagram
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
@@ -253,7 +256,7 @@ This helps visualize mechanical cycling behavior.
    └──────────────────────────────────────┘
 ```
 
-## 🔢 Explanation of Key Computations
+### 🔢 Explanation of Key Computations
 ```text
 Timestamp Alignment
 The script finds the first large jump in the charge file’s time column.
@@ -271,17 +274,17 @@ The script identifies peaks in the strain signal using:
 - Positive strain only
 The number of detected peaks corresponds to the number of mechanical cycles.
 ```
-## 📄 Example Output
+### 📄 Example Output
 Number of cycles: 147
 
 A plot is displayed showing strain vs. time with red peak markers.
 ![Cell 1 Plot](./images/Cell1.png)
 
 
-# 📘 3_Cell_Dataset_Splicer Script
+## 📘 3_Cell_Dataset_Splicer Script
 This script takes raw charge and discharge .lvm files for each battery cell and automatically splits them into individual cycle files. It uses timestamp jumps to detect where each cycle begins and ends, aligns discharge timestamps so they follow the charge data, flips the strain sign for consistency, and saves each cycle into organized folders.
 
-## 🔍 What the Script Does
+### 🔍 What the Script Does
 For each cell, the script:
 ```text
 - Loads the charge and discharge .lvm files
@@ -293,7 +296,7 @@ For each cell, the script:
 - Saves each cycle into separate charge/ and discharge/ folders
 This produces a clean, structured dataset where each cycle is isolated and ready for downstream analysis.
 ```
-## ▶️ How to Use the Script
+### ▶️ How to Use the Script
 ### 1. Place your data files
 Each cell must have:
 
@@ -304,7 +307,7 @@ Discharge file: *_DischargeCycle1.lvm
 
 The script automatically loads them based on the cells dictionary.
 
-### 2. Run the script
+#### 2. Run the script
 The script will:
 ```text
 - Load the charge and discharge files
@@ -320,7 +323,7 @@ cell1/discharge/discharge_1_2.lvm
 
 Each pair corresponds to one cycle.
 ```
-### 3. Inspect the output folders
+#### 3. Inspect the output folders
 For each cell, the script creates:
 ```text
 cell1/
@@ -336,7 +339,7 @@ cell1/
 
 This structure keeps cycles cleanly separated and easy to process.
 ```
-## 🧭 Processing Diagram
+### 🧭 Processing Diagram
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
@@ -381,7 +384,7 @@ This structure keeps cycles cleanly separated and easy to process.
    └──────────────────────────────────────┘
 ```
 
-## 🔢 Explanation of Key Steps
+### 🔢 Explanation of Key Steps
 ```text
 Cycle Boundary Detection
 The script looks for large jumps in the time column.
@@ -401,7 +404,7 @@ For each detected cycle:
 - A slice of the discharge data is saved
 - Filenames include both the cell index and cycle number
 ```
-## 📄 Example Output
+### 📄 Example Output
 ```text
 cell2/
    charge/
