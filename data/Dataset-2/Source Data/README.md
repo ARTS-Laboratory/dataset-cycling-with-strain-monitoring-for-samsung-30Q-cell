@@ -151,9 +151,9 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
    └──────────┬───────────────────────────┘
               │
               ▼
-   ┌──────────────────────────────────────┐
+   ┌─────────────────────────────┐
    │ Plot capacity vs. cycle     │
-   └──────────────────────────────────────┘   
+   └─────────────────────────────┘   
 ```
 
 ### 📂 Output Directory Structure
