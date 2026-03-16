@@ -37,9 +37,9 @@ Each cycle is processed independently.
 ```text
 Qc1 = QSTART + ∫ I_charge dt
 ```
-- Cycles 2 and higher start from zero:
+- Cycles 2 and higher start from 0.1 offset:
 ```text
-Qc(n>=2) = ∫ I_charge dt
+Qc(n>=2) = Q + ∫ I_charge dt
 ```
 ### 4. Compute discharge Capacity
 Discharge always begins from the charge capacity of the same cycle:
@@ -80,8 +80,8 @@ QSTARTS = {
 It will:
 - Detect cycles
 - Compute charge/discharge capacities
-- Save summary files in SOC/
-No user interaction required.
+- Save summary files in Capacity/
+- No user interaction required.
 
 ### 4. View the output
 Example:
