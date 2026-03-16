@@ -1,3 +1,7 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 # 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
 This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
@@ -146,7 +150,6 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ## 📂 Output Directory Structure
 ```text
 project/
-│
 ├── Capacity_Extractor.py
 ├── _1__ChargeCycle1.lvm
 ├── _1__DischargeCycle1.lvm
