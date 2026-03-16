@@ -1,3 +1,135 @@
+# 📘 Cell_Combined_Cycle_Plot Script
+This script loads charge and discharge .lvm files for each battery cell, aligns their timestamps, merges them into a single continuous dataset, removes invalid strain spikes, detects strain‑based cycling events, and generates a strain‑vs‑time plot with peak markers.
+
+## 🔍 What the Script Does
+For each cell, the script:
+```text
+- Loads the charge and discharge files
+- Drops rows with missing current or voltage
+- Converts time from seconds to hours
+- Converts strain to microstrain
+- Computes milliamp‑hours using the trapezoidal rule
+- Detects the timestamp jump between charge and discharge
+- Shifts the discharge timestamps so both datasets align
+- Merges charge and discharge into a single .lvm file
+- Removes strain outliers (for cell3 only)
+- Detects strain peaks to estimate the number of cycles
+- Plots strain vs. time and highlights the detected peaks
+
+This produces a clean, continuous dataset and a visual representation of strain cycling behavior.
+```
+## ▶️ How to Use the Script
+### 1. Place your data files
+Each cell must have:
+```text
+Charge file:    *_ChargeCycle1.lvm
+Discharge file: *_DischargeCycle1.lvm
+
+The script automatically loads them based on the cells dictionary.
+```
+### 2. Run the script
+The script will:
+```text
+- Load and clean the charge and discharge data
+- Align the discharge timestamps to follow the charge data
+- Merge both into a single continuous .lvm file
+- Detect strain peaks
+- Count the number of cycles
+- Generate a strain plot with peak markers
+```
+### 3. View the merged output
+For each cell, the script writes:
+```text
+cell1.lvm
+cell2.lvm
+cell3.lvm
+
+These contain the combined charge+discharge dataset sorted by time.
+```
+### 4. Inspect the cycle count
+The script prints:
+```text
+Number of cycles: X
+
+This is based on the number of positive strain peaks detected.
+```
+### 5. View the generated plot
+Each plot shows:
+```text
+- Strain vs. time
+- Red markers at detected peaks
+- A title indicating the cell
+- Dual y‑axes (strain and max strain)
+
+This helps visualize mechanical cycling behavior.
+```
+## 🧭 Processing Diagram
+```text
+          ┌──────────────────────────┐
+          │     Start the script     │
+          └──────────┬──────────────┘
+                     │
+                     ▼
+      ┌────────────────────────────────┐
+      │ Load charge & discharge files  │
+      └──────────┬─────────────────────┘
+                 │
+                 ▼
+   ┌──────────────────────────────────────┐
+   │ Clean data (drop NaNs, convert units)│
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Detect timestamp jump between files  │
+   │ Shift discharge timestamps           │
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Merge charge + discharge into one file│
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Remove strain outliers (cell3 only)  │
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Detect strain peaks and count cycles │
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Plot strain vs. time with peaks      │
+   └──────────────────────────────────────┘
+```
+
+## 🔢 Explanation of Key Computations
+```text
+Timestamp Alignment
+The script finds the first large jump in the charge file’s time column.
+This jump marks the end of charge and the start of discharge.
+The discharge timestamps are shifted forward by this amount so both datasets form a continuous timeline.
+Milliamp‑Hour Calculation
+The script uses the trapezoidal rule:
+mAh = cumulative sum of (average current * time difference * 1000)
+
+This produces a smooth estimate of charge throughput.
+Strain Peak Detection
+The script identifies peaks in the strain signal using:
+- Minimum distance between peaks
+- Minimum prominence
+- Positive strain only
+The number of detected peaks corresponds to the number of mechanical cycles.
+```
+## 📄 Example Output
+Number of cycles: 147
+
+A plot is displayed showing strain vs. time with red peak markers.
+
+
 # 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
 This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
