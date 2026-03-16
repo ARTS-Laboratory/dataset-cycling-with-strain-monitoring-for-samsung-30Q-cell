@@ -144,8 +144,8 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 
 
 ## 📂 Output Directory Structure
-project/
 ```text
+project/
 │
 ├── Capacity_Extractor.py
 ├── _1__ChargeCycle1.lvm
@@ -153,7 +153,7 @@ project/
 ├── _2__ChargeCycle1.lvm
 ├── _2__DischargeCycle1.lvm
 │
-└── SOC/
+└── Capacity/
     ├── cell1_capacity_summary.lvm
     ├── cell2_capacity_summary.lvm
     └── cell3_capacity_summary.lvm
