@@ -40,7 +40,7 @@ For each cycle:
 ## 🔢 Mathematical Definition
 
 For each cell, the charge capacity per cycle is defined as:
-
+```text
 \[
 Q_{c1} = Q_{\text{START}} + \int I_{\text{charge}} \, dt
 \]
@@ -61,7 +61,7 @@ Here:
 - \(I_{\text{charge}}\) is the charge current,
 - \(I_{\text{discharge}}\) is the discharge current,
 - \(Q_{d,n}\) represents the remaining capacity after discharge in cycle \(n\).
-
+```
 ### 5. Export results
 For each cell, the script writes:
 SOC/cellX_capacity_summary.lvm
