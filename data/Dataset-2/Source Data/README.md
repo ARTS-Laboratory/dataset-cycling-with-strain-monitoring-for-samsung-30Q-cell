@@ -15,7 +15,7 @@ Mechanical hoop strain on the battery casing, measured in strain (ε).
 
 ## 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
-This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
+This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, exports clean summary files for each cell, and generates a capacity-vs-cycle plot for each cell.
 
 ### 📘 Overview
 The Capacity_Extractor script computes per‑cycle charge and discharge capacities for multiple battery cells. It is designed for datasets where:
@@ -67,7 +67,15 @@ For each cell, the script writes:
 ```text
 Capacity/cellX_capacity_summary.lvm
 ```
+#### 6. View the generated plot
+Each plot shows:
+```text
+- Capacity vs. cycle
+- A title indicating the cell
+- Dual y‑axes (charge capacity and remaining capacity after discharge)
 
+This helps visualize cell capacity fade.
+```
 ### ▶️ How to Use the Script
 #### 1. Add your data files
 Place your .lvm charge/discharge files in the same directory as the script.
@@ -140,9 +148,13 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
               ▼
    ┌──────────────────────────────────────┐
    │ Save summary file in SOC/ folder     │
-   └──────────────────────────────────────┘
+   └──────────┬───────────────────────────┘
+              │
+              ▼
+   ┌──────────────────────────────────────┐
+   │ Plot capacity vs. cycle     │
+   └──────────────────────────────────────┘   
 ```
-
 
 ### 📂 Output Directory Structure
 ```text
@@ -158,7 +170,8 @@ project/
     ├── cell2_capacity_summary.lvm
     └── cell3_capacity_summary.lvm
 ```
-
+### 📄 Example Output
+![Capacity Plot](./Capacity/cell1_capacity_plot.png)
 
 ## 📘 Cell_Combined_Cycle_Plot Script
 This script loads charge and discharge .lvm files for each battery cell, aligns their timestamps, merges them into a single continuous dataset, removes invalid strain spikes, detects strain‑based cycling events, and generates a strain‑vs‑time plot with peak markers.

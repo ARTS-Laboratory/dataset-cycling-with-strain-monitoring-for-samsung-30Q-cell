@@ -8,6 +8,7 @@ Created on Sun Mar 15 18:56:43 2026
 import os
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 # -----------------------------------------
 # Settings
@@ -116,5 +117,35 @@ for cell, phase in cells.items():
 
     out_path = os.path.join(out_root, f"{cell}_capacity_summary.lvm")
     summary_df.to_csv(out_path, sep="\t", index=False, header=True)
+    
+    # -----------------------------------------
+    # Plot capacity vs cycle for this cell
+    # -----------------------------------------
+    plt.figure(figsize=(8,5))
+
+    plt.plot(
+        summary_df["Cycle"],
+        summary_df["ChargeCapacity_Ah"],
+        marker="o",
+        label="Charge Capacity (Ah)"
+    )
+
+    plt.plot(
+        summary_df["Cycle"],
+        summary_df["RemainingCapacity_after_Discharge_Ah"],
+        marker="s",
+        label="Remaining Capacity After Discharge (Ah)"
+    )
+
+    plt.title(f"{cell}: Capacity vs Cycle")
+    plt.xlabel("Cycle Number")
+    plt.ylabel("Capacity (Ah)")
+    plt.grid(True, alpha=0.3)
+    plt.legend()
+
+    plot_path = os.path.join(out_root, f"{cell}_capacity_plot.png")
+    plt.savefig(plot_path, dpi=300, bbox_inches="tight")
+    plt.close()
 
 print("Per-cell capacity summary files created with per-cell QSTART and discharge continuing from charge.")
+
