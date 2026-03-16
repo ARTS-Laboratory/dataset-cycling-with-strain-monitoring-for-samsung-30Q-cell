@@ -8,6 +8,7 @@ The Capacity_Extractor script computes per‑cycle charge and discharge capaciti
 - Cycles are embedded within each file
 - Time resets or large time gaps indicate new cycles
 - The initial SOC is unknown, so each cell receives its own QSTART offset
+
 The script ensures:
 - QSTART applies only to cycle 1 (per cell)
 - Every other cycle starts from zero
