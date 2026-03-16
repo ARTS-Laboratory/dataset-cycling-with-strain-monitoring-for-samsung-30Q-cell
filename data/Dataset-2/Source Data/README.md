@@ -128,6 +128,7 @@ The number of detected peaks corresponds to the number of mechanical cycles.
 Number of cycles: 147
 
 A plot is displayed showing strain vs. time with red peak markers.
+![Cell 1 Plot](./images/Cell1.png)
 
 
 # 🔋 Capacity_Extractor
