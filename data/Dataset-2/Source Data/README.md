@@ -69,7 +69,7 @@ Capacity/cellX_capacity_summary.lvm
 ```
 
 ### ▶️ How to Use the Script
-### 1. Add your data files
+#### 1. Add your data files
 Place your .lvm charge/discharge files in the same directory as the script.
 Update the cells dictionary:
 ```text
@@ -309,7 +309,7 @@ For each cell, the script:
 This produces a clean, structured dataset where each cycle is isolated and ready for downstream analysis.
 ```
 ### ▶️ How to Use the Script
-### 1. Place your data files
+#### 1. Place your data files
 Each cell must have:
 
 ```text
