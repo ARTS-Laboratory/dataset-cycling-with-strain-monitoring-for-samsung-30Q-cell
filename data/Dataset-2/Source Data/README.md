@@ -1,5 +1,17 @@
 # Source Data
-Original source data prior to any preprocessing. Files, _1__ChargeCycle1 and _3__ChargeCycle1, were split into 2 parts due to file size. The file parts must be must combined and named at previously stated for scripts to work. Below are explainations of the scripts and instructions for usage. Calculated cycle capacities for each cell are located in the Capacity folder.
+Original source data prior to any preprocessing. Files, _1__ChargeCycle1 and _3__ChargeCycle1, were split into 2 parts due to file size. The file parts must be must combined and named as previously stated for scripts to work. Below are explainations of the scripts and instructions for usage. Calculated cycle capacities for each cell are located in the Capacity folder.
+
+## 📊 Data Columns
+- Time
+Timestamp of each measurement, recorded in seconds.
+- Current
+Cell current measured in amperes (A).
+- Voltage
+Cell voltage measured in volts (V).
+- Cell Temperature
+Surface temperature of the cell in degrees Celsius (°C).
+- Hoop Strain
+Mechanical hoop strain on the battery casing, measured in strain (ε).
 
 ## 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
@@ -101,7 +113,7 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
-          └──────────┬──────────────┘
+          └──────────┬───────────────┘
                      │
                      ▼
       ┌────────────────────────────────┐
@@ -217,7 +229,7 @@ This helps visualize mechanical cycling behavior.
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
-          └──────────┬──────────────┘
+          └──────────┬───────────────┘
                      │
                      ▼
       ┌────────────────────────────────┐
@@ -236,9 +248,9 @@ This helps visualize mechanical cycling behavior.
    └──────────┬───────────────────────────┘
               │
               ▼
-   ┌──────────────────────────────────────┐
+   ┌───────────────────────────────────────┐
    │ Merge charge + discharge into one file│
-   └──────────┬───────────────────────────┘
+   └──────────┬────────────────────────────┘
               │
               ▼
    ┌──────────────────────────────────────┐
@@ -343,7 +355,7 @@ This structure keeps cycles cleanly separated and easy to process.
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
-          └──────────┬──────────────┘
+          └──────────┬───────────────┘
                      │
                      ▼
       ┌────────────────────────────────┐
