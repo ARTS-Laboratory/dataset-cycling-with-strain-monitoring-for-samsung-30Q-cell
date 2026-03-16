@@ -1,8 +1,8 @@
-🔋 Capacity_Extractor
+### 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
 This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
 
-📘 Overview
+### 📘 Overview
 The Capacity_Extractor script computes per‑cycle charge and discharge capacities for multiple battery cells. It is designed for datasets where:
 - Each cell has separate charge and discharge files
 - Cycles are embedded within each file
@@ -16,12 +16,13 @@ The script ensures:
 - Capacity fade emerges naturally as integrals shrink with age
 All results are written to a dedicated SOC/ folder.
 
-⚙️ How the Script Works
+### ⚙️ How the Script Works
 1. Load charge and discharge data
+```text
 For each cell, the script loads:
 Charge file:    *_ChargeCycle*.lvm
 Discharge file: *_DischargeCycle*.lvm
-
+```
 
 You define these in the cells dictionary.
 
@@ -36,21 +37,37 @@ For each cycle:
 - Integrate current over time
 - If it’s cycle 1, add the cell’s QSTART
 - Otherwise, start from zero
-Mathematically:
-Q_{c1}=Q_{\mathrm{START}}+\int I_{\mathrm{charge}}dt
-Q_{c,n\geq 2}=\int I_{\mathrm{charge}}dt
+### 🔢 Mathematical Definition
 
-4. Compute discharge capacity
-Discharge always continues from the charge capacity of the same cycle:
-Q_{d,n}=Q_{c,n}-\int |I_{\mathrm{discharge}}|dt
-This produces a physically meaningful “remaining capacity” after discharge.
+For each cell, the charge capacity per cycle is defined as:
+
+\[
+Q_{c1} = Q_{\text{START}} + \int I_{\text{charge}} \, dt
+\]
+
+\[
+Q_{c,n \ge 2} = \int I_{\text{charge}} \, dt
+\]
+
+The discharge capacity for cycle \(n\) always continues from the charge capacity of that same cycle:
+
+\[
+Q_{d,n} = Q_{c,n} - \int \left| I_{\text{discharge}} \right| \, dt
+\]
+
+Here:
+
+- \(Q_{\text{START}}\) is the per‑cell initial capacity offset (applied only to cycle 1),
+- \(I_{\text{charge}}\) is the charge current,
+- \(I_{\text{discharge}}\) is the discharge current,
+- \(Q_{d,n}\) represents the remaining capacity after discharge in cycle \(n\).
 
 5. Export results
 For each cell, the script writes:
 SOC/cellX_capacity_summary.lvm
 
 
-▶️ How to Use the Script
+### ▶️ How to Use the Script
 1. Add your data files
 Place your .lvm charge/discharge files in the same directory as the script.
 Update the cells dictionary:
@@ -91,7 +108,7 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ```
 
 
-🧭 Processing Flow
+### 🧭 Processing Flow
 ```text
           ┌──────────────────────────┐
           │     Start the script     │
@@ -109,14 +126,14 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
               │
               ▼
    ┌──────────────────────────────────────┐
-   │ Compute charge capacity per cycle     │
-   │ (QSTART added only to cycle 1)        │
+   │ Compute charge capacity per cycle    │
+   │ (QSTART added only to cycle 1)       │
    └──────────┬───────────────────────────┘
               │
               ▼
    ┌──────────────────────────────────────┐
-   │ Compute discharge capacity per cycle  │
-   │ (starts from charge capacity)         │
+   │ Compute discharge capacity per cycle │
+   │ (starts from charge capacity)        │
    └──────────┬───────────────────────────┘
               │
               ▼
@@ -126,7 +143,7 @@ Cycle	ChargeCapacity_Ah	RemainingCapacity_after_Discharge_Ah
 ```
 
 
-📂 Output Directory Structure
+### 📂 Output Directory Structure
 project/
 ```text
 │
