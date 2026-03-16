@@ -2,6 +2,7 @@
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+
 # 🔋 Capacity_Extractor
 A lightweight, cycle‑aware capacity analysis tool for battery test data.
 This script processes charge/discharge .lvm files, detects cycle boundaries, computes per‑cycle capacities, and exports clean summary files for each cell.
@@ -37,39 +38,24 @@ Cycles are identified by:
 Each cycle is processed independently.
 
 ### 3. Compute charge capacity
-For each cycle:
-- Integrate current over time
-- If it’s cycle 1, add the cell’s QSTART
-- Otherwise, start from zero
-## 🔢 Mathematical Definition
-
-For each cell, the charge capacity per cycle is defined as:
+- Cycle 1 uses the cell’s QSTART offset:
 ```text
-\[
-Q_{c1} = Q_{\text{START}} + \int I_{\text{charge}} \, dt
-\]
-
-\[
-Q_{c,n \ge 2} = \int I_{\text{charge}} \, dt
-\]
-
-### 4. The discharge capacity for cycle \(n\) always continues from the charge capacity of that same cycle:
-
-\[
-Q_{d,n} = Q_{c,n} - \int \left| I_{\text{discharge}} \right| \, dt
-\]
-
-Here:
-
-- \(Q_{\text{START}}\) is the per‑cell initial capacity offset (applied only to cycle 1),
-- \(I_{\text{charge}}\) is the charge current,
-- \(I_{\text{discharge}}\) is the discharge current,
-- \(Q_{d,n}\) represents the remaining capacity after discharge in cycle \(n\).
+Qc1 = QSTART + ∫ I_charge dt
+```
+- Cycles 2 and higher start from zero:
+```text
+Qc(n>=2) = ∫ I_charge dt
+```
+### 4. Compute discharge Capacity
+Discharge always begins from the charge capacity of the same cycle:
+```text
+Qd(n) = Qc(n) - ∫ |I_discharge| dt
 ```
 ### 5. Export results
 For each cell, the script writes:
-SOC/cellX_capacity_summary.lvm
-
+```text
+Capacity/cellX_capacity_summary.lvm
+```
 
 ## ▶️ How to Use the Script
 ### 1. Add your data files
