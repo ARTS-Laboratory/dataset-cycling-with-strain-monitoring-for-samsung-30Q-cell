@@ -16,7 +16,7 @@ Cycle Life:
 The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~80% capacity remained.
 
 ## Dataset-2
-The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~70% capacity remained.
+The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~65 - 80% capacity remained.
 
 ## Licensing and Citation
 
