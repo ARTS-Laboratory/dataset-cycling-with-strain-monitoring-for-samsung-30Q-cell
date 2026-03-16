@@ -15,7 +15,7 @@ The script ensures:
 - Discharge capacity continues from the charge capacity of the same cycle
 - No cross‑cycle carry‑over
 - Capacity fade emerges naturally as integrals shrink with age
-All results are written to a dedicated SOC/ folder.
+All results are written to a dedicated Capacity/ folder.
 
 ## ⚙️ How the Script Works
 ### 1. Load charge and discharge data
