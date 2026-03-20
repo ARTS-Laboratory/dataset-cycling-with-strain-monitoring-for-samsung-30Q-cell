@@ -1,8 +1,8 @@
 # Battery Data
-## Capacity Fade Plots
+## State of Health (SOH) Plots
 
 ### Dataset 1
-![Dataset1 Capacity Plot](./figures/dataset1-capacity.png.png)
+![Dataset1 Capacity Plot](./images/dataset1-capacity.png.png)
 
 ### Dataset 2
-![Dataset2 Capacity Plot](./figures/dataset2-capacity.png.png)
+![Dataset2 Capacity Plot](./images/dataset2-capacity.png.png)
