@@ -13,10 +13,10 @@ Cycle Life:
    - Proper care can extend its lifespan.
 
 ## Dataset-1
-The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~80% capacity remained. There were 1 hr wait times between each charge and discharge.
+The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~80% capacity remained. There were 1 hr rest periods between each charge and discharge.
 
 ## Dataset-2
-The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~65 - 80% capacity remained. There were no wait times.
+The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~65 - 80% capacity remained. There were no rest periods.
 
 ## Licensing and Citation
 
