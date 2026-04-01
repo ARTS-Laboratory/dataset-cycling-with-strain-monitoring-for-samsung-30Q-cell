@@ -9,14 +9,18 @@ I may one day put this in a GUI but untill then change only excel_file_path
 
 
 ''' Libary Setup '''
+#import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
-''' Excel File Path '''
-#excel_file_path = 'C:/School/Navy/Data/Python/Bode/Test Data/Try.xlsx'
+''' Update These Paths '''
 excel_file_path = 'C:/School/Navy/Data/Python/Bode/Test Data/Rack3_3_24_26_Bode.xlsx'
+media_file_path = 'C:/School/Navy/Data/Python/Media'
+
+''' File Paths '''
 excel_file = pd.ExcelFile(excel_file_path)
+#media_file = os.path.abspath
 
 
 def User_Sheet_Selection(Sheet_Cell_Name):
@@ -104,11 +108,17 @@ while contin == True:
     if Toggle_Overlay == True:
         #Variables
         Freq2 = Sheet_Selection['Freq (Hz).2'].values
-        Freq3 = Sheet_Selection['Freq (Hz).5'].values
-        Zmod2 = Sheet_Selection['Zmod (ohm).2'].values 
+        DriftFreq2 = Sheet_Selection['Freq (Hz).3'].values  
+        Freq3 = Sheet_Selection['Freq (Hz).4'].values
+        DriftFreq3 = Sheet_Selection['Freq (Hz).5'].values
+        Zmod2 = Sheet_Selection['Zmod (ohm).2'].values
+        DriftZmod2 = Sheet_Selection['Zmod (ohm).3'].values
         Zmod3 = Sheet_Selection['Zmod (ohm).4'].values
+        DriftZmod3 = Sheet_Selection['Zmod (ohm).5'].values
         Zphz2 = Sheet_Selection['Zphz (deg).2'].values
+        DriftZphz2 = Sheet_Selection['Zphz (deg).3'].values
         Zphz3 = Sheet_Selection['Zphz (deg).4'].values
+        DriftZphz3 = Sheet_Selection['Zphz (deg).5'].values
         
         #Mag Graph (Top)
         Bode_Mag_Plot = Plot_Array[0,0]
@@ -126,6 +136,14 @@ while contin == True:
         Bode_Phase_Plot.semilogx(Freq2, Zphz2, color = 'red', linestyle = '-', label = 'Cell 2 Phase')
         Bode_Phase_Plot.semilogx(Freq3, Zphz3, color = 'green', linestyle = '-', label = 'Cell 3 Phase')
         Bode_Phase_Plot.legend()
+        
+        #Drift
+        if Drift_Toggle == True:
+            Bode_Mag_Plot.semilogx(DriftFreq2, DriftZmod2, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Magnitude')
+            Bode_Phase_Plot.semilogx(DriftFreq2, DriftZphz2, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Phase')
+            Bode_Mag_Plot.semilogx(DriftFreq3, DriftZmod3, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Magnitude')
+            Bode_Phase_Plot.semilogx(DriftFreq3, DriftZphz3, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Phase')
+            Bode_Phase_Plot.legend()
         
     #Drift
     if Drift_Toggle == True:
