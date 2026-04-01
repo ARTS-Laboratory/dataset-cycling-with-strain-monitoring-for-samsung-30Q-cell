@@ -9,7 +9,6 @@ I may one day put this in a GUI but untill then change only excel_file_path
 
 
 ''' Libary Setup '''
-#import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -17,10 +16,12 @@ import matplotlib.pyplot as plt
 ''' Update These Paths '''
 excel_file_path = 'C:/School/Navy/Data/Python/Bode/Test Data/Rack3_3_24_26_Bode.xlsx'
 media_file_path = 'C:/School/Navy/Data/Python/Media'
+save_type = '.png' #what file type graph will be saved as
 
-''' File Paths '''
+
+''' Excel File Path '''
 excel_file = pd.ExcelFile(excel_file_path)
-#media_file = os.path.abspath
+
 
 
 def User_Sheet_Selection(Sheet_Cell_Name):
@@ -74,8 +75,12 @@ while contin == True:
     Ylabel_Mag = 'Mod (ohm)'
     Ylabel_Phase = 'Zphz (deg)'
     Xlabel_Phase = 'Frequency (Hz)'
-
-
+    
+    ''' Media Setup '''
+    File_Title_Path = PlotTitle.replace(' ','_')
+    File_Title = f'{File_Title_Path}{save_type}'
+    save_media_path = f'{media_file_path}/{File_Title}'
+    
     ''' Bode Setup '''
     Freq = Sheet_Selection['Freq (Hz)'].values 
     DriftFreq = Sheet_Selection['Freq (Hz).1'].values  
@@ -103,6 +108,8 @@ while contin == True:
         Bode_Phase_Plot.set_ylabel(Ylabel_Phase)
         Bode_Phase_Plot.set_xlabel(Xlabel_Phase)
         Bode_Phase_Plot.legend()
+        
+
     
     #Overlay
     if Toggle_Overlay == True:
@@ -144,6 +151,10 @@ while contin == True:
             Bode_Mag_Plot.semilogx(DriftFreq3, DriftZmod3, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Magnitude')
             Bode_Phase_Plot.semilogx(DriftFreq3, DriftZphz3, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Phase')
             Bode_Phase_Plot.legend()
+
+        #Saving Graph
+        Bode_Plot.savefig(save_media_path)
+        
         
     #Drift
     if Drift_Toggle == True:
@@ -151,6 +162,9 @@ while contin == True:
         Bode_Phase_Plot.semilogx(DriftFreq, DriftZphz, color = 'black', linestyle = '--', label = f'{Sheet_Name} Drift Phase')
         
         
+    #Saving Graphs
+    Bode_Plot.savefig(save_media_path)
+    
     ''' Looping '''
     user_contin = input('Do you want to continue?\ny for Yes\nn for No: ')
     if user_contin.lower() in {'y','yes','ye'}:
@@ -161,6 +175,7 @@ while contin == True:
 ''' Testing '''
 #print(Sheet_Selection)
 #print(Sheet_Name)
+print(save_media_path)
 
 
 
