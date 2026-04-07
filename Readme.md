@@ -1,8 +1,6 @@
 # Dataset Cycling with Strain Monitoring for Samsung 30Q Cell
 The Samsung 30Q is a high-performance lithium-ion cell widely used in various applications, including e-bikes, power tools, and other high-drain devices. Cycling refers to the process of charging and discharging the battery repeatedly.
 
-![Capacity Plot](./data/Dataset-2/Source%20Data//Capacity/cell1_capacity_plot.png)
-
 ## Key Features of the Samsung 30Q:
 - **Capacity**: 3000mAh
 - **Nominal Voltage**: 3.6V
