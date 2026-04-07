@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 
 
 ''' Update These Paths '''
-excel_file_path = 'C:/School/Navy/Github/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell/data/Dataset-2/post-test-spectroscopy/Excel/Test_Bode.xlsx'
-media_file_path = 'C:/School/Navy/Github/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell/data/Dataset-2/post-test-spectroscopy/Media'
+excel_file_path = './data/Test_Bode.xlsx'
+media_file_path = './media'
 save_type = '.png' #what file type graph will be saved as
 
 
