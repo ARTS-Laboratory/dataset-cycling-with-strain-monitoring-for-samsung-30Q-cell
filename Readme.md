@@ -31,7 +31,7 @@ Cite this as:
   title  = {Dataset Cycling with Strain Monitoring for {S}amsung 30Q Cell},    
   groups = {ARTS-Lab},    
   url    = {https://github.com/ARTS-Laboratory/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell},   
-  notes  = {Accessed: Month dd, yyyy},   
+  note  = {Accessed: Month dd, yyyy},   
 }
 
 <p align="center">
