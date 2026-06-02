@@ -38,21 +38,21 @@ Test Settings
 Cells Tested:
  1) Cell 1: 
 
-    <img src="./Media/Cell_1_Bode_Plot.png" width="500" height="333.33" alt="Cell 1 Bode Plot">
+    <img src="" width="500" height="333.33" alt="Cell 1 Bode Plot">
     
-    <img src="./Media/Cell_1_Nyquist_Plot.png" width="500" height="333.33" alt="Cell 1 Nyquist Plot">
+    <img src="" width="500" height="333.33" alt="Cell 1 Nyquist Plot">
  2) Cell 2: 
 
-      <img src="./Media/Cell_2_Bode_Plot.png" width="500" height="333.33" alt="Cell 2 Bode Plot">
+      <img src="" width="500" height="333.33" alt="Cell 2 Bode Plot">
     
-      <img src="./Media/Cell_2_Nyquist_Plot.png" width="500" height="333.33" alt="Cell 2 Nyquist Plot">
+      <img src="" width="500" height="333.33" alt="Cell 2 Nyquist Plot">
  3) Cell 3:
  
-      <img src="./Media/Cell_3_Bode_Plot.png" width="500" height="333.33" alt="Cell 3 Bode Plot">
+      <img src="" width="500" height="333.33" alt="Cell 3 Bode Plot">
     
-      <img src="./Media/Cell_3_Nyquist_Plot.png" width="500" height="333.33" alt="Cell 3 Nyquist Plot">
+      <img src="" width="500" height="333.33" alt="Cell 3 Nyquist Plot">
  4) Overlay of all 3 Cells:
  
-      <img src="./Media/Overlay_Bode_Plot.png" width="500" height="333.33" alt="Overlay Bode Plot">
+      <img src="" width="500" height="333.33" alt="Overlay Bode Plot">
     
-      <img src="./Media/Overlay_Nyquist_Plot.png" width="500" height="333.33" alt="Overlay Nyquist Plot">
+      <img src="" width="500" height="333.33" alt="Overlay Nyquist Plot">
