@@ -3,7 +3,7 @@
 Created on Mon Apr 20 11:49:10 2026
 Modified last on Tues June 2 11:50 2026
 
-Creates the Bode and Nyquist Plots Automattically
+Creates the Bode and Nyquist Plots Automatically
 Only needed file. 
 
 Note: 
@@ -16,7 +16,7 @@ Note:
 @author: Charlie Buren
 """
 
-''' Libary Setup '''
+''' Library Setup '''
 import numpy as np
 import matplotlib.pyplot as plt
 import gamry_parser as parser
@@ -28,11 +28,15 @@ from pathlib import Path
 "Path to the folder. The data folder should be a subdirectory of this folder"
 Folder_path = r'C:\School\Navy\Github\dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell\data\Dataset-2\post-test-spectroscopy' #Change this (leave the r outside quotes)
 
+"""
+Note that if you change the number of cells you need to update the colors.
+Also if you change cell count the Display_Graphs.md will not update.
+"""
 Cell_Count = 3
 colors = ['blue', 'red', 'green'] #[cell 1, cell 2, cell 3]
 
 
-''' Optional Settigns '''
+''' Optional Settings '''
 save_type = '.png' #Leave period if you want to change the file save type
 
 
@@ -93,7 +97,7 @@ class GraphBuilderBode:
         Bode_Plot = plt.figure(layout="constrained")
         Plot_Array = Bode_Plot.subplots(2,1, squeeze = False)
         
-        #Lables
+        #Labels
         Bode_Plot.suptitle(self.PlotTitle)
         
         #Mag Graph (Top)
@@ -236,7 +240,7 @@ def create_nyquist(DTA_files, save_media_path, colors, Test_Name, save_type, Cel
     # DTA_files = CellBuilder.create_DTA_dict()
     save_data = {}
 
-    for i, (cell_id, path) in enumerate(DTA_files.items()): #for loop iterating on the dictonary. (cell_id, path) assagins dict values 
+    for i, (cell_id, path) in enumerate(DTA_files.items()): #for loop iterating on the dictionary. (cell_id, path) assagins dict values 
         #for title/labels
         cell_id_no_underline = cell_id.replace('_',' ')
         
@@ -260,8 +264,6 @@ def create_nyquist(DTA_files, save_media_path, colors, Test_Name, save_type, Cel
         
         graph_nyquist_single.create_nyquist_graph()
         
-        
-        
     ''' Overlay '''
     list_Zreal, list_Zimag= [], []
     label_nyquist = []
@@ -284,7 +286,7 @@ def create_nyquist(DTA_files, save_media_path, colors, Test_Name, save_type, Cel
     overlay_fig.suptitle('Overlay: Nyquist Plot')
     overlay_ax.grid(True, alpha = .3)
 
-    #plot varibles
+    #plot variables
     for i in range (Cell_Count):
         overlay_ax.plot(list_Zreal[i], 
                         list_Zimag[i],
@@ -301,6 +303,20 @@ def create_nyquist(DTA_files, save_media_path, colors, Test_Name, save_type, Cel
     overlay_ax.legend()
 
     plt.show()
+
+def display_graph_markdown_write(MD_Path,Cell_Count, Test_Name):
+    with open(MD_Path, 'w') as f:
+        #Single Cell Show
+        for i in range(1, Cell_Count+1):
+            f.write(f'## Cell {i} Graphs:\n\n')
+            f.write(f'<img src="./media/{Test_Name}_Cell_{i}_Bode.png" width="500" height="333.33" alt="Cell {i} Bode Plot">\n')
+            f.write(f'<img src="./media/{Test_Name}_Cell_{i}_Nyquist.png" width="500" height="333.33" alt="Cell {i} Nyquist Plot">\n\n')
+        
+        #Overlay
+        f.write(f'## Overlay Graphs:\n\n')
+        f.write(f'<img src="./media/{Test_Name}_Overlay_Bode.png" width="500" height="333.33" alt="Overlay Bode Plot">\n')
+        f.write(f'<img src="./media/{Test_Name}_Overlay_Nyquist.png" width="500" height="333.33" alt="Overlay Nyquist Plot">\n\n')
+
 
 ''' Variable Setup '''
 DTA_files_bode = CellBuilder.create_DTA_dict(DTA_folder_path=DTA_folder_path,
@@ -327,7 +343,14 @@ create_nyquist(DTA_files=DTA_files_nyquist,
                Cell_Count=Cell_Count)
 
 
+''' Write to MD '''
+display_graphs_path = fr'{search_directory}\Display_Graphs.md'
+
+display_graph_markdown_write(MD_Path=display_graphs_path, Cell_Count=Cell_Count, Test_Name=Test_Name)
+
+
 ''' Testing '''
-print(search_directory)
-print(save_media_path)
-print(DTA_folder_path)
+# print(search_directory)
+# print(save_media_path)
+# print(DTA_folder_path)
+# print(display_graphs_path)
