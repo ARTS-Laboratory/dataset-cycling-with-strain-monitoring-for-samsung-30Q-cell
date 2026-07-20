@@ -1,3 +1,5 @@
+⚠️ This repo is being depercated and contente moved to https://github.com/ARTS-Laboratory/Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q]
+
 # Dataset Cycling with Strain Monitoring for Samsung 30Q Cell
 The Samsung 30Q is a high-performance lithium-ion cell widely used in various applications, including e-bikes, power tools, and other high-drain devices. Cycling refers to the process of charging and discharging the battery repeatedly.
 
