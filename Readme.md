@@ -1,10 +1,9 @@
-⚠️ This repo is deprecated. All content was copied to [Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q](https://github.com/ARTS-Laboratory/Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q). This repository remains here only as an archive. ⚠️
+# ⚠️ This repo is deprecated. All content was copied to [Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q](https://github.com/ARTS-Laboratory/Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q). This repository remains here only as an archive. ⚠️
 
 
-# Dataset Cycling with Strain Monitoring for Samsung 30Q Cell
+## Dataset Cycling with Strain Monitoring for Samsung 30Q Cell
 The Samsung 30Q is a high-performance lithium-ion cell widely used in various applications, including e-bikes, power tools, and other high-drain devices. Cycling refers to the process of charging and discharging the battery repeatedly.
-
-## Key Features of the Samsung 30Q:
+### Key Features of the Samsung 30Q:
 - **Capacity**: 3000mAh
 - **Nominal Voltage**: 3.6V
 - **Max Continuous Discharge Current**: 15A
@@ -13,13 +12,13 @@ Cycle Life:
    - The battery is rated for around 300-500 cycles with minimal capacity loss under optimal conditions.
    - Proper care can extend its lifespan.
 
-## Dataset-1
+### Dataset-1
 The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~80% capacity remained. There were 1 hr rest periods between each charge and discharge.
 
-## Dataset-2
+### Dataset-2
 The dataset consists of three 30Q cells cycled at 1C CC‑CV during charge and 1C CC during discharge between 4.2 V and 2.5 V at 25 °C until ~65 - 80% capacity remained. There were no rest periods.
 
-## Licensing and Citation
+### Licensing and Citation
 
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License [cc-by-sa 4.0].
 
