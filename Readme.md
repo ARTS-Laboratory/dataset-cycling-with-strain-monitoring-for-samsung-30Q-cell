@@ -1,4 +1,4 @@
-⚠️ This repo is deprecated. All content was copied to (Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q)[https://github.com/ARTS-Laboratory/Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q]. This repository remains here only as an archive. ⚠️
+⚠️ This repo is deprecated. All content was copied to [Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q](https://github.com/ARTS-Laboratory/Dataset-electro-thermal-mechanical-characterization-for-Samsung-30Q). This repository remains here only as an archive. ⚠️
 
 
 # Dataset Cycling with Strain Monitoring for Samsung 30Q Cell
